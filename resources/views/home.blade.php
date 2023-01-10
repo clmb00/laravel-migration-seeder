@@ -30,6 +30,7 @@
                                 dump($diff);
                                 $diff->add($interval1);
                                 dump($diff);
+                                // Sottrae l'intervallo quando lo aggiugno una seconda volta
                                 $diff->add($interval2);
                                 dump($diff);
                                 echo date_format($diff, 'G:i');
