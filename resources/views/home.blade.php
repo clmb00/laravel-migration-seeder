@@ -22,18 +22,20 @@
                                 $diff=date_diff($arrivo,$partenza);
                                 echo $diff->format("%H:%I");
                             } else {
-                                $diff = new DateTime('00:00');
-                                $mezzanotteprima=date_create('24:59:59');
-                                $mezzanottedopo=date_create('00:00:00');
-                                $interval1=date_diff($mezzanotteprima,$partenza);
-                                $interval2=date_diff($arrivo,$mezzanottedopo);
-                                dump($diff);
-                                $diff->add($interval1);
-                                dump($diff);
-                                // Sottrae l'intervallo quando lo aggiugno una seconda volta
-                                $diff->add($interval2);
-                                dump($diff);
-                                echo date_format($diff, 'G:i');
+                                $array_partenza = explode(':', $train->orario_di_partenza);
+                                $ora_partenza = $array_partenza[0];
+                                $min_partenza = $array_partenza[1];
+                                $array_arrivo = explode(':', $train->orario_di_arrivo);
+                                $ora_arrivo = $array_arrivo[0];
+                                $min_arrivo = $array_arrivo[1];
+                                $diff_ore = (24 - $ora_partenza) + ($ora_arrivo);
+                                $diff_min = $min_partenza + $min_arrivo;
+                                if ($diff_min >= 60) {
+                                    $diff_ore++;
+                                    $diff_min -= 60;
+                                }
+                                $diff_tot = date_create($diff_ore . ':' . $diff_min);
+                                echo date_format($diff_tot,"H:i");
                             }
                         ?>
                         </strong>
@@ -46,6 +48,7 @@
                     @else
                         <p>CANCELLATO</p>
                     @endif
+                    <p></p>
                 </div>
             </div>
           </div>
