@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-auto me-5">
                             <div class="row align-items-center">
                                 <div class="col-auto mb-2">
                                     <label for="input_tipologia" class="col-form-label"><i class="bi bi-train-front-fill fs-4"></i> <span class="ps-2" style="font-size: 1.1rem">Tipologia treni: </span></label>
@@ -50,6 +50,22 @@
                                 </div>
                                 <div class="col-auto mb-2">
                                     <input type="time" id="input_ora_part" name="input_ora_part" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="row align-items-center">
+                                <div class="col-auto mb-2">
+                                    <label for="order_by" class="col-form-label"><i class="bi bi-list-ol fs-4"></i> <span class="ps-2" style="font-size: 1.1rem">Ordina per: </span></label>
+                                </div>
+                                <div class="col-auto mb-2">
+                                    <select class="form-select" name="order_by" id="order_by" aria-label="Selezione tipo di Treno">
+                                        <option selected value="null">--</option>
+                                        <option value="numero_carrozze">Numero carrozze</option>
+                                        <option value="orario_di_partenza">Orario di partenza</option>
+                                        <option value="orario_di_arrivo">Orario di arrivo</option>
+                                        <option value="codice_treno">Codice Treno</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
