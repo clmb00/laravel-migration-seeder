@@ -8,37 +8,53 @@
             <h3 class="card-title mb-3">Cerca un treno</h3>
             <div class="card-text">
                 <form method="get">
-                    <div class="row align-items-center">
-                        <div class="col-auto mb-2">
-                            <label for="input_partenza" class="col-form-label fs-4 fw-bolder"><i class="bi bi-arrow-up-right"></i></label>
+
+                    <div class="row">
+                        <div class="col-auto me-5">
+                            <div class="row align-items-center">
+                                <div class="col-auto mb-2">
+                                    <label for="input_partenza" class="col-form-label fs-4 fw-bolder"><i class="bi bi-arrow-up-right"></i></label>
+                                </div>
+                                <div class="col-auto mb-2">
+                                    <input type="text" id="input_partenza" name="input_partenza" class="form-control" placeholder="Partenza">
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-auto mb-2">
+                                    <label for="input_arrivo" class="col-form-label fs-4 fw-bolder"><i class="bi bi-arrow-down-right"></i></label>
+                                </div>
+                                <div class="col-auto mb-2">
+                                    <input type="text" id="input_arrivo" name="input_arrivo" class="form-control" placeholder="Arrivo">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-auto mb-2" style="min-width: 30%">
-                            <input type="text" id="input_partenza" name="input_partenza" class="form-control" placeholder="Partenza">
+                        <div class="col-auto">
+                            <div class="row align-items-center">
+                                <div class="col-auto mb-2">
+                                    <label for="input_tipologia" class="col-form-label"><i class="bi bi-train-front-fill fs-4"></i> <span class="ps-2" style="font-size: 1.1rem">Tipologia treni: </span></label>
+                                </div>
+                                <div class="col-auto mb-2">
+                                    <select class="form-select" name="input_tipologia" id="input_tipologia" aria-label="Selezione tipo di Treno">
+                                        <option selected value="null">Tutti</option>
+                                        <option value="AV">AV - Altavelocità</option>
+                                        <option value="IC">IC - Intercity</option>
+                                        <option value="REG">REG - Regionale</option>
+                                        <option value="RV">RV - Regionale Veloce</option>
+                                        <option value="SUB">SUB - Suburbano</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-auto mb-2">
+                                    <label for="input_ora_part" class="col-form-label"><i class="bi bi-clock-history fs-4"></i> <span class="ps-2" style="font-size: 1.1rem">Orario di Partenza: </span></label>
+                                </div>
+                                <div class="col-auto mb-2">
+                                    <input type="time" id="input_ora_part" name="input_ora_part" class="form-control">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row align-items-center">
-                        <div class="col-auto mb-2">
-                            <label for="input_arrivo" class="col-form-label fs-4 fw-bolder"><i class="bi bi-arrow-down-right"></i></label>
-                        </div>
-                        <div class="col-auto mb-2" style="min-width: 30%">
-                            <input type="text" id="input_arrivo" name="input_arrivo" class="form-control" placeholder="Arrivo">
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-auto mb-2">
-                            <label for="input_tipologia" class="col-form-label"><i class="bi bi-train-front-fill fs-4"></i> <span class="ps-2" style="font-size: 1.1rem">Tipologia treni: </span></label>
-                        </div>
-                        <div class="col-auto mb-2">
-                            <select class="form-select" name="input_tipologia" id="input_tipologia" aria-label="Selezione tipo di Treno">
-                                <option selected value="null">Tutti</option>
-                                <option value="AV">AV - Altavelocità</option>
-                                <option value="IC">IC - Intercity</option>
-                                <option value="REG">REG - Regionale</option>
-                                <option value="RV">RV - Regionale Veloce</option>
-                                <option value="SUB">SUB - Suburbano</option>
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="row align-items-center">
                         <div class="col">
                             <h6 class="card-subtitle">Treni trovati: {{ count($trains) }}</h6>
@@ -48,6 +64,7 @@
                             <button class="btn btn-primary mx-2" type="submit">Cerca  <i class="bi bi-search"></i></button>
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>
